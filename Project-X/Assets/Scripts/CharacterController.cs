@@ -34,7 +34,7 @@ public class CharacterController : MonoBehaviour {
 
 
     void Update() {
-        Debug.Log(grounded);
+
         GetInput();
         CalculateDirection();
         CalculateForward();
