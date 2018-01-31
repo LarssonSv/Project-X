@@ -56,7 +56,7 @@ public class CharacterController : MonoBehaviour {
 
     void ApplyGravity() {
         if (!grounded) {
-            transform.Translate(0, -0.1f, 0);
+            transform.Translate(0, -0.05f, 0);
         }
         
     }
