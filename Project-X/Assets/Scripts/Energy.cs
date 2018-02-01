@@ -21,6 +21,5 @@ public class Energy : MonoBehaviour {
 
     private void DecayEnergy () {
         energy -= 1;
-        Debug.Log("energy: " + energy);
     }
 }

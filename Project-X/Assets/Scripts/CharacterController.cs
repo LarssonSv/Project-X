@@ -10,18 +10,13 @@ public class CharacterController : MonoBehaviour {
     public float maxGroundAngle = 120;
     public float heightPadding = 0.05f;
     public float height = 0.5f;
-    public float maxSpeed = 50f;
     public float groundAngle;
-    public float jumpHeight = 40;
-
     public LayerMask ground;
-    public bool debug;
 
     //Private
     Vector2 input;
     float angle;
     Rigidbody rb;
-    public bool jumpEndFrame;
     Quaternion targetRotation;
     Vector3 forward;
     RaycastHit hitInfo;
@@ -41,7 +36,6 @@ public class CharacterController : MonoBehaviour {
         ApplyGravity();
         CalculateGroundAngle();
         CheckGround();
-        DrawDebugLines();
         if (Mathf.Abs(input.x) < 1 && Mathf.Abs(input.y) < 1) {
             rb.velocity = 0f * Vector3.forward;
         } else {
@@ -56,7 +50,7 @@ public class CharacterController : MonoBehaviour {
 
     void ApplyGravity() {
         if (!grounded) {
-            transform.Translate(0, -0.05f, 0);
+            Physics.gravity = new Vector3(0, -9.8f, 0);
         }
         
     }
@@ -65,9 +59,6 @@ public class CharacterController : MonoBehaviour {
     void GetInput() {
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            jumpEndFrame = true;
-        }
     }
 
     void CalculateDirection() {
@@ -118,13 +109,6 @@ public class CharacterController : MonoBehaviour {
             grounded = true;
         } else {
             grounded = false;
-        }
-    }
-
-    void DrawDebugLines() {
-        if (debug == true) {
-            Debug.DrawLine(transform.position, transform.position + forward * height * 2, Color.blue);
-            Debug.DrawLine(transform.position, transform.position - Vector3.up * height, Color.green);
         }
     }
 }
