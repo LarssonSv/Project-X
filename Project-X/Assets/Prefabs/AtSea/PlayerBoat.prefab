@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 23574624478782984}
   - component: {fileID: 114463428071708316}
   - component: {fileID: 54324128456788544}
+  - component: {fileID: 114965929293299796}
   - component: {fileID: 114069275643309840}
   m_Layer: 0
   m_Name: PlayerBoat
@@ -595,6 +596,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114965929293299796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428229855323124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1ef6aeb60b0674180e546266dbb69d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  damageAmount: 10
 --- !u!198 &198123440917034694
 ParticleSystem:
   m_ObjectHideFlags: 1
