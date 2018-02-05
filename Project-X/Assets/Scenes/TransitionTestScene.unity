@@ -691,6 +691,11 @@ Prefab:
       propertyPath: acceleration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114069275643309840, guid: 55655ff640b657e49a034ecea0eef45c,
+        type: 2}
+      propertyPath: maxSpeed
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55655ff640b657e49a034ecea0eef45c, type: 2}
   m_IsPrefabParent: 0

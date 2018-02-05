@@ -9,6 +9,7 @@ public class BoatControllerScript : MonoBehaviour {
     public float acceleration = 1f;
     public float maxBackSpeed = -50f;
     public float maxSpeed = 200f;
+    public float turnSpeed = 1f;
     private Rigidbody boatRB;
     public float speed = 0;
     private Vector3 vel;
@@ -17,41 +18,58 @@ public class BoatControllerScript : MonoBehaviour {
         boatRB = GetComponent<Rigidbody>();
     }
     void FixedUpdate() {
-
-        if (Input.GetKey(KeyCode.W)) {
-            if (speed < maxSpeed) {
-                speed = speed + acceleration;
-            }
-        } else if (Input.GetKey(KeyCode.S)) {
-
-            if (speed > maxBackSpeed) {
-                speed = speed - acceleration;
-            }
-
-        } else {
-            if (speed < acceleration + 2 && speed > 0) {
-                speed = 0;
-            } else if (speed < 0 && speed > -3) {
-                speed = 0;
-            } else {
-                if (speed > 0) {
-                    speed = speed - acceleration;
-                }
-                else if (speed < 0) {
-                    speed = speed + acceleration;
-                }
-                
-            }
-
-        }
-    
-
-        if (Input.GetKey(KeyCode.A)) {
-            transform.Rotate(0f, -1f, 0f);
-        } else if (Input.GetKey(KeyCode.D)) {
-            transform.Rotate(0f, 1f, 0f);
-        }
+        Inputs();
         boatRB.velocity = vel;
-        boatRB.AddRelativeForce(Vector3.forward* speed);
+        boatRB.AddRelativeForce(Vector3.forward * speed);
+    }
+
+    void SpeedAdjust() {
+        if (speed > 0 && speed < 2) {
+            speed = 0;
+        }
+        else if (speed < 0 && speed > -2) {
+            speed = 0;
+        }
+        else if (speed < 0) {
+            speed = speed + acceleration;
+        }
+        else {
+            speed = speed - acceleration;
+        }
+    }
+
+    void Inputs() {
+        //Check Forward and reverse
+        if (Input.GetKey(KeyCode.W) && speed < maxSpeed) {
+            speed = speed + acceleration;
+        }
+        else if (Input.GetKey(KeyCode.S) && speed > maxBackSpeed) {
+            speed = speed - acceleration;
+        }
+        else {
+            SpeedAdjust();
+        }
+
+        //Check turns
+        if (Input.GetKey(KeyCode.A)) {
+            if (speed < 35) {
+                transform.Rotate(Vector3.down, 4f * Time.deltaTime);
+            }
+            else {
+                transform.Rotate(Vector3.down, Time.deltaTime * speed / 30);
+            }
+            
+        }
+        else if (Input.GetKey(KeyCode.D)) {
+            if (speed < 35) {
+                transform.Rotate(Vector3.down, -4f * Time.deltaTime);
+            }
+            else {
+                transform.Rotate(Vector3.down, Time.deltaTime * -speed / 30);
+            }
+        }
     }
 }
+
+
+
