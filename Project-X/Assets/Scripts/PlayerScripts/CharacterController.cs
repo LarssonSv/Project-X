@@ -22,11 +22,9 @@ public class CharacterController : MonoBehaviour {
     RaycastHit hitInfo;
     bool grounded;
 
-
     void Start() {
         rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
     }
-
 
     void Update() {
 
@@ -41,18 +39,13 @@ public class CharacterController : MonoBehaviour {
         } else {
             Rotate();
             Move();
-
         }
-
-
-
     }
 
     void ApplyGravity() {
         if (!grounded) {
             Physics.gravity = new Vector3(0, -9.8f, 0);
-        }
-        
+        }        
     }
 
     //Input based keys
@@ -70,9 +63,7 @@ public class CharacterController : MonoBehaviour {
     void Rotate() {
         targetRotation = Quaternion.Euler(0, angle, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
-
     }
-
 
     //Move Object
     void Move() {
@@ -81,8 +72,6 @@ public class CharacterController : MonoBehaviour {
         } else {
             rb.velocity = forward * velocity;
         }
-
-
     }
 
     //If player is not gounded, forward will be equal to transfrom forward
@@ -92,7 +81,6 @@ public class CharacterController : MonoBehaviour {
             forward = transform.forward;
             return;
         }
-
         forward = Vector3.Cross(hitInfo.normal, -transform.right);
     }
 

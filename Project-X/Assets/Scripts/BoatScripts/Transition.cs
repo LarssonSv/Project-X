@@ -21,7 +21,7 @@ public class Transition : MonoBehaviour {
     //Slår på/av texten när båten kommer in/ut ur kollisionsboxen.
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerBoat") || other.CompareTag("Player"))
         {
             nearby = true;
             if (!docked)
@@ -37,7 +37,7 @@ public class Transition : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerBoat") || other.CompareTag("Player"))
         {
             nearby = false;
             if (!docked)
@@ -58,7 +58,7 @@ public class Transition : MonoBehaviour {
         {
             goAshoreText.SetActive(false);                             
             docked = true;                      
-            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            Destroy(GameObject.FindGameObjectWithTag("PlayerBoat"));
             Instantiate(playerCharacter, spawnPosition.transform.position, spawnPosition.transform.rotation);
             Instantiate(dockedBoat, transform.position, transform.rotation);
         }

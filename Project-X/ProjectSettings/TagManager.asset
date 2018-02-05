@@ -6,6 +6,9 @@ TagManager:
   tags:
   - options
   - Inventory
+  - Idle
+  - Danger
+  - PlayerBoat
   layers:
   - Default
   - TransparentFX
@@ -42,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Level1
+    uniqueID: 2961869211
     locked: 0
