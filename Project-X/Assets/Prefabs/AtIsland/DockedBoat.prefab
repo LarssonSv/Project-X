@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23037691564907434}
   - component: {fileID: 114075317056541930}
   - component: {fileID: 54008602317388072}
+  - component: {fileID: 65472972938050008}
   m_Layer: 0
   m_Name: DockedBoat
   m_TagString: Idle
@@ -99,6 +100,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
+--- !u!65 &65472972938050008
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332043339061176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114075317056541930
 MonoBehaviour:
   m_ObjectHideFlags: 1
