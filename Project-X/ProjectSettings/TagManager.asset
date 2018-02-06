@@ -9,6 +9,7 @@ TagManager:
   - Idle
   - Danger
   - PlayerBoat
+  - UI
   layers:
   - Default
   - TransparentFX
