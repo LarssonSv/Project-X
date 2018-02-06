@@ -5,23 +5,23 @@ using UnityEngine;
 public class StoreScript : MonoBehaviour {
 
     [SerializeField]
-    private GameObject menu, storeCamera, storeText, item1Btn, item2Btn, item3Btn;
+    private GameObject item1Btn, item2Btn, item3Btn, storeCamera, menu;
 
-    private GameObject clone, ui;
+    private GameObject storeText;
 
     private bool nearby = false, browsing = false;
 
     private void Start()
     {
-        ui = GameObject.FindGameObjectWithTag("UI");
+        storeText = GameObject.Find("UI").transform.Find("StoreText").gameObject;
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             nearby = true;
-            clone = Instantiate(storeText);
-            clone.transform.SetParent(ui.transform);
+            storeText.SetActive(true);
         }
     }
 
@@ -31,7 +31,7 @@ public class StoreScript : MonoBehaviour {
         {
             browsing = false;
             nearby = false;
-            Destroy(clone.gameObject);
+            storeText.SetActive(false);
             storeCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().enabled = false;
             menu.SetActive(false);
         }
@@ -44,13 +44,12 @@ public class StoreScript : MonoBehaviour {
             browsing = true;
             storeCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().enabled = true;
             menu.SetActive(true);
-            Destroy(clone.gameObject);
+            storeText.SetActive(false);
         }
         else if (browsing && Input.GetKeyDown(KeyCode.E))
         {
             browsing = false;
             nearby = false;
-            Destroy(clone.gameObject);
             storeCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().enabled = false;
             menu.SetActive(false);
         }

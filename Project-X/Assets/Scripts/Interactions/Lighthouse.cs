@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Lighthouse : MonoBehaviour {
     [SerializeField]
-    private GameObject lighthouseText, player, lighhouseLitText, hinge, ani, spawnPoint;
-    private GameObject clone, ui;
+    private GameObject player, hinge, ani, spawnPoint;
+    private GameObject lighthouseText, lighthouseLitText;
 
     private bool nearby = false, lit = false;
 
 	void Start ()
-    {
-        ui = GameObject.FindGameObjectWithTag("UI");
+    {       
+        lighthouseText = GameObject.Find("UI").transform.Find("LighthouseText").gameObject;
+        lighthouseLitText = GameObject.Find("UI").transform.Find("LighthouseLitText").gameObject;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,8 +20,7 @@ public class Lighthouse : MonoBehaviour {
         if (!lit && other.gameObject.CompareTag("Player"))
         {
             nearby = true;
-            clone = Instantiate(lighthouseText);
-            clone.transform.SetParent(ui.transform);
+            lighthouseText.SetActive(true);
         }
     }
 
@@ -29,7 +29,7 @@ public class Lighthouse : MonoBehaviour {
         if (!lit && other.gameObject.CompareTag("Player"))
         {
             nearby = false;
-            Destroy(clone.gameObject);
+            lighthouseText.SetActive(false);
         }
     }
 
@@ -39,13 +39,14 @@ public class Lighthouse : MonoBehaviour {
         {
             nearby = false;
             Destroy(GameObject.FindGameObjectWithTag("Player"));
-            Destroy(clone.gameObject);
+            lighthouseText.SetActive(false);
             StartCoroutine("Activate");
         }
         else if (lit && Input.GetKeyDown(KeyCode.E))
         {
             ani.SetActive(false);
-            Destroy(clone.gameObject);
+            lighthouseLitText.SetActive(false);
+            Destroy(this);
             Instantiate(player, spawnPoint.transform.position, spawnPoint.transform.rotation);
         }
     }
@@ -57,7 +58,6 @@ public class Lighthouse : MonoBehaviour {
         
         yield return new WaitForSeconds(6);
         lit = true;
-        clone = Instantiate(lighhouseLitText);
-        clone.transform.SetParent(ui.transform);
+        lighthouseLitText.SetActive(true);
     }
 }

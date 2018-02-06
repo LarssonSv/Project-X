@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class Transition : MonoBehaviour {
 
     [SerializeField]
-    private GameObject goAshoreText, setSailText, playerBoat,
-                       spawnPosition, playerCharacter, dockedBoat;
+    private GameObject playerBoat, spawnPosition, playerCharacter, dockedBoat;
 
-    private GameObject ui, clone;
+    private GameObject goAshoreText, setSailText;
 
     private bool docked = false, nearby = false;
 
@@ -18,7 +17,8 @@ public class Transition : MonoBehaviour {
     private void Start()
     {
         boatRB = playerBoat.GetComponent<Rigidbody>();
-        ui = GameObject.FindGameObjectWithTag("UI");
+        goAshoreText = GameObject.Find("UI").transform.Find("GoAshoreText").gameObject;
+        setSailText = GameObject.Find("UI").transform.Find("SetSailText").gameObject;
     }
 
     //Slår på/av texten när båten kommer in/ut ur kollisionsboxen.
@@ -29,13 +29,12 @@ public class Transition : MonoBehaviour {
             nearby = true;
             if (!docked)
             {
-                clone = Instantiate(goAshoreText);               
+                goAshoreText.SetActive(true);             
             }
             else
             {
-                clone = Instantiate(setSailText);
+                setSailText.SetActive(true);
             }
-            clone.transform.SetParent(ui.transform);
         }
     }
 
@@ -43,8 +42,9 @@ public class Transition : MonoBehaviour {
     {
         if (other.CompareTag("PlayerBoat") || other.CompareTag("Player"))
         {
-            nearby = false;           
-            Destroy(clone.gameObject);                  
+            nearby = false;
+            goAshoreText.SetActive(false);
+            setSailText.SetActive(false);
         }
     }
 
@@ -54,15 +54,15 @@ public class Transition : MonoBehaviour {
         if (nearby && Input.GetKeyDown(KeyCode.E) && !docked)
         {
             docked = true;
-            Destroy(clone.gameObject);
+            goAshoreText.SetActive(false);
             Destroy(GameObject.FindGameObjectWithTag("PlayerBoat"));
             Instantiate(playerCharacter, spawnPosition.transform.position, spawnPosition.transform.rotation);
             Instantiate(dockedBoat, transform.position, transform.rotation);
         }
-        else if (nearby && Input.GetKeyDown(KeyCode.E) && docked)
+        else if (nearby && Input.GetKeyDown(KeyCode.E))
         {          
             docked = false;
-            Destroy(clone.gameObject);
+            setSailText.SetActive(false);
             Destroy(GameObject.FindGameObjectWithTag("Player"));
             Destroy(GameObject.FindGameObjectWithTag("Idle"));
             Instantiate(playerBoat, transform.position, transform.rotation);
