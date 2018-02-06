@@ -9,7 +9,12 @@ TagManager:
   - Idle
   - Danger
   - PlayerBoat
+<<<<<<< HEAD
   - UI
+=======
+  - speachText
+  - speachName
+>>>>>>> d2751c6061a7e73ea51ecdaa18de2feebf164be9
   layers:
   - Default
   - TransparentFX
