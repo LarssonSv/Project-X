@@ -25,7 +25,7 @@ public class StoreScript : MonoBehaviour {
     [SerializeField]
     private int item1Cost, item2Cost, item3Cost;
 
-    private bool nearby = false, browsing = false;
+    private bool nearby = false, browsing = false, item1Left = true, item2Left = true, item3Left = true;
 
     private void Start()
     {
@@ -73,6 +73,18 @@ public class StoreScript : MonoBehaviour {
             storeCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().enabled = false;
             menu.SetActive(false);
         }
+        else if (browsing && Input.GetKeyDown(KeyCode.Alpha1) && item1Left)
+        {
+            BuyItem(1);
+        }
+        else if (browsing && Input.GetKeyDown(KeyCode.Alpha2) && item2Left)
+        {
+            BuyItem(2);
+        }
+        else if (browsing && Input.GetKeyDown(KeyCode.Alpha3) && item3Left)
+        {
+            BuyItem(3);
+        }
     }
 
     public void BuyItem(int item)
@@ -82,6 +94,7 @@ public class StoreScript : MonoBehaviour {
             case 1:
                 if (inventory.GetMoney() >= item1Cost)
                 {
+                    item1Left = false;
                     inventory.ChangeMoney("Remove", item1Cost);
                     inventory.AddItem(item1);
                     Debug.Log("You bought a " + item1.name.ToString() + ".");
@@ -93,6 +106,7 @@ public class StoreScript : MonoBehaviour {
             case 2:
                 if (inventory.GetMoney() >= item2Cost)
                 {
+                    item2Left = false;
                     inventory.ChangeMoney("Remove", item2Cost);
                     inventory.AddItem(item2);
                     Debug.Log("You bought a " + item2.name.ToString() + ".");
@@ -103,6 +117,7 @@ public class StoreScript : MonoBehaviour {
             case 3:
                 if (inventory.GetMoney() >= item3Cost)
                 {
+                    item3Left = false;
                     inventory.ChangeMoney("Remove", item3Cost);
                     inventory.AddItem(item3);
                     Debug.Log("You bought a " + item3.name.ToString() + ".");

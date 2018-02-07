@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TreasureScript : MonoBehaviour {
 
     [SerializeField]
-    private GameObject loot;
+    private InventoryItem loot;
+
     private GameObject treasureText;
+
+    private Inventory inventory;
 
     private bool nearby = false;
 
     private void Start()
     {
+        inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
         //Eftersom TreasureText är inaktiverat vid start går jag via den aktiva föräldern.
         treasureText = GameObject.Find("UI").transform.Find("TreasureText").gameObject;
     }
@@ -38,7 +43,8 @@ public class TreasureScript : MonoBehaviour {
     {
         if (nearby && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("you loot some stuff");
+            inventory.AddItem(loot);
+            Debug.Log("you loot a " + loot.displayName + ".");
             treasureText.SetActive(false);
             Destroy(gameObject);
         }

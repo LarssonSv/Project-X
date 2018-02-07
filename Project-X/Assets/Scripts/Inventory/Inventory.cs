@@ -8,11 +8,10 @@ public class Inventory : MonoBehaviour {
     public List<InventoryItem> items = new List<InventoryItem>();
     public InventoryDisplay inventoryDisplayPrefab;
     public KeyCode openInv;
-    private int money = 0;
+    protected int money = 0;
 
     [SerializeField]
     private int startMoney;
-
   
     private  GameObject moneyText;
 
@@ -45,7 +44,7 @@ public class Inventory : MonoBehaviour {
         {
             money -= amount;
         }
-        moneyText.GetComponent<TextMeshProUGUI>().text = "Money: " + money.ToString();
+        moneyText.GetComponent<TextMeshProUGUI>().text = "Money: " + money;
     }
 
     void ListenForInv() {
