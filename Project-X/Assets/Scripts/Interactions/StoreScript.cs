@@ -6,14 +6,18 @@ public class StoreScript : MonoBehaviour {
 
     [SerializeField]
     private GameObject item1Btn, item2Btn, item3Btn, storeCamera, menu;
+    [Space(15)]
+    [SerializeField]
+    private InventoryItem item1, item2, item3;
 
-    private GameObject storeText;
+    private GameObject storeText, inventory;
 
     private bool nearby = false, browsing = false;
 
     private void Start()
     {
         storeText = GameObject.Find("UI").transform.Find("StoreText").gameObject;
+        inventory = GameObject.Find("Inventory");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,18 +64,18 @@ public class StoreScript : MonoBehaviour {
         switch (item)
         {
             case 1:
-                //giff player item 1;
-                Debug.Log("You bought item 1!");
+                inventory.GetComponent<Inventory>().AddItem(item1);
+                Debug.Log("You bought a " + item1.name.ToString() + ".");
                 item1Btn.SetActive(false);
                 break;
             case 2:
-                //giff player item 2;
-                Debug.Log("You bought item 2!");
+                inventory.GetComponent<Inventory>().AddItem(item2);
+                Debug.Log("You bought a " + item2.name.ToString() + ".");
                 item2Btn.SetActive(false);
                 break;
             case 3:
-                //giff player item 3;
-                Debug.Log("You bought item 3!");
+                inventory.GetComponent<Inventory>().AddItem(item3);
+                Debug.Log("You bought a " + item3.name.ToString() + ".");
                 item3Btn.SetActive(false);
                 break;
             default:

@@ -26,6 +26,10 @@ public class Inventory : MonoBehaviour {
         }
     }
 
+    public void AddItem(InventoryItem item)
+    {
+        items.Add(item);
+    }
 
     void KeyListen() {
         if (Input.GetKeyDown(openInv)) {
