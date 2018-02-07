@@ -4,17 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - options
-  - Inventory
   - Idle
-  - Danger
   - PlayerBoat
-<<<<<<< HEAD
-  - UI
-=======
   - speachText
   - speachName
->>>>>>> d2751c6061a7e73ea51ecdaa18de2feebf164be9
+  - Inventory
   layers:
   - Default
   - TransparentFX
@@ -24,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
+  - 
   - 
   - 
   - 
@@ -51,7 +45,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Level1
-    uniqueID: 2961869211
     locked: 0
