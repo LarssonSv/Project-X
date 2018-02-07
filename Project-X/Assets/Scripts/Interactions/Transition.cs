@@ -53,6 +53,7 @@ public class Transition : MonoBehaviour {
     {
         if (nearby && Input.GetKeyDown(KeyCode.E) && !docked)
         {
+            GameObject.Find("CheckPoint").GetComponent<CheckPointScript>().NewSpawnPoint(gameObject);
             docked = true;
             goAshoreText.SetActive(false);
             Destroy(GameObject.FindGameObjectWithTag("PlayerBoat"));

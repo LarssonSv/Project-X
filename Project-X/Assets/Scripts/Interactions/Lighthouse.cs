@@ -54,8 +54,7 @@ public class Lighthouse : MonoBehaviour {
     IEnumerator Activate()
     {
         ani.SetActive(true);
-        hinge.SetActive(true);
-        
+        hinge.SetActive(true);        
         yield return new WaitForSeconds(6);
         lit = true;
         lighthouseLitText.SetActive(true);

@@ -9,6 +9,11 @@ TagManager:
   - speachText
   - speachName
   - Inventory
+  - UI
+  - Danger
+  - HpBar
+  - EnergyBar
+  - FuelBar
   layers:
   - Default
   - TransparentFX

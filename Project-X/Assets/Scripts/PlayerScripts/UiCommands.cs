@@ -19,7 +19,6 @@ public class UiCommands : MonoBehaviour {
 
     public void Exit() {
         Application.Quit();
-        Debug.Log("Does not work in editor, works when running from EXE");
     }
 
     public void ToggleScreen (){

@@ -6,12 +6,13 @@ using UnityEngine;
 public class BoatControllerScript : MonoBehaviour {
 
     [SerializeField]
-    public float acceleration = 1f;
-    public float maxBackSpeed = -50f;
-    public float maxSpeed = 200f;
-    public float turnSpeed = 1f;
-    private Rigidbody boatRB;
-    public float speed = 0;
+    private float acceleration = 1f,maxBackSpeed = -50f, 
+                  maxSpeed = 200f, turnSpeed = 1f;
+
+    private float speed = 0;
+
+    private Rigidbody boatRB;  
+
     private Vector3 vel;
 
     private void Start() {
@@ -19,7 +20,7 @@ public class BoatControllerScript : MonoBehaviour {
     }
     void FixedUpdate() {
         Inputs();
-        boatRB.velocity = vel;
+        boatRB.velocity = vel; // Används inte?
         boatRB.AddRelativeForce(Vector3.forward * speed);
     }
 
