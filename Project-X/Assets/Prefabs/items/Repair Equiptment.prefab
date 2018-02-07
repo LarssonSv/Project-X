@@ -39,7 +39,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Repair Equipment
-  desc: Could provide useful to your boat's condition.
+  desc: 'Effect: Fully repair your boat.
+
+    "Hang in there old friend."'
   sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!224 &224115590742125790
 RectTransform:
