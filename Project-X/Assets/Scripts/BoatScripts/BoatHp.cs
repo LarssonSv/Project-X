@@ -6,13 +6,20 @@ using UnityEngine.UI;
 public class BoatHp : MonoBehaviour {
 
     [SerializeField]
-    private int hp, damageAmount;
-
+    private int startHp, damageAmount;
+    private int hp;
     private Image bar;
 
     private void Start()
     {
+        hp = startHp;
         bar = GameObject.FindGameObjectWithTag("HpBar").GetComponent<Image>();
+        bar.fillAmount = hp * 0.01f;
+    }
+
+    public void RestoreHp()
+    {
+        hp = startHp;
         bar.fillAmount = hp * 0.01f;
     }
 

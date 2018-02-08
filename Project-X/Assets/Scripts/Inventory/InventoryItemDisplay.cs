@@ -35,11 +35,44 @@ public class InventoryItemDisplay : MonoBehaviour {
             displayName = item.displayName;
         }
         Debug.Log("Clicked!" + displayName);
-        if (onClick != null) {
-            onClick.Invoke(item);
-        } else {
-            Debug.Log("Nobody was listening to" + displayName);
-        }
+        
+            switch (displayName)
+            {
+                case "Dagger":
+                    Debug.Log("Works");
+                    break;
+
+                case "Fast Sails":
+
+                    break;
+
+                case "Fuel Tank":
+
+                    break;
+
+                case "Refreshments":
+
+                    break;
+
+                case "Repair Equipment":
+                    try
+                    {
+                        Debug.Log("works");
+                        GameObject.Find("PlayerBoat").GetComponent<BoatHp>().RestoreHp();
+                        GameObject.Find("Inventory").GetComponent<Inventory>().items.Remove(item);
+                    }
+                    catch (System.Exception) { }
+                    Debug.Log("crash");
+                    break;
+
+                case "Sword":
+
+                    break;
+
+                default:
+                    break;
+            
+        } 
 
     }
 }

@@ -18,8 +18,6 @@ public class Inventory : MonoBehaviour {
     bool open = false;
 
     void Start() {
-        //  InventoryDisplay inventory = (InventoryDisplay)Instantiate(inventoryDisplayPrefab);
-        //  inventory.Prime(items);
         moneyText = GameObject.Find("MoneyText");
         ChangeMoney("Add", startMoney);
     }
