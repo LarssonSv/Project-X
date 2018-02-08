@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour {
     void Start() {
         moneyText = GameObject.Find("MoneyText");
         ChangeMoney("Add", startMoney);
+        PlayerPrefs.SetFloat("fuel", 100f);
     }
 
     void Update() {
