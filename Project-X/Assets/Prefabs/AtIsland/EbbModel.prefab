@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 95447301015980846}
   - component: {fileID: 54241579463464656}
   - component: {fileID: 136486894649475712}
-  - component: {fileID: 114127556191554258}
   - component: {fileID: 114919874603630218}
+  - component: {fileID: 114965338376805250}
   m_Layer: 0
   m_Name: EbbModel
   m_TagString: Player
@@ -35,7 +35,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1174232191526472
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -95,7 +95,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4582681808490624
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174232191526472}
@@ -179,24 +179,9 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114127556191554258
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1112035096246568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d83cae5121ff0e47b69639045b6fc1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetPos: {x: 0, y: 0, z: 0}
-  moveSpeed: 5
-  speedH: 2
-  speedV: 2
 --- !u!114 &114490817768916774
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174232191526472}
@@ -253,6 +238,22 @@ MonoBehaviour:
   canRunSidestep: 1
   canJump: 1
   canRun: 1
+--- !u!114 &114965338376805250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1112035096246568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d83cae5121ff0e47b69639045b6fc1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetPos: {x: 0, y: 0, z: 0}
+  moveSpeed: 5
+  speedH: 2
+  speedV: 2
+  player: {fileID: 0}
 --- !u!136 &136486894649475712
 CapsuleCollider:
   m_ObjectHideFlags: 1
