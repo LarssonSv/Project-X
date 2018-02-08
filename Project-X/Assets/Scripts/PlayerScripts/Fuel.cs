@@ -20,6 +20,7 @@ public class Fuel : MonoBehaviour
         fuel = 50;
         fuel = PlayerPrefs.GetFloat("fuel");
         rb = GetComponent<Rigidbody>();
+        bar = GameObject.FindGameObjectWithTag("FuelBar").GetComponent<Image>();
     }
 
 
