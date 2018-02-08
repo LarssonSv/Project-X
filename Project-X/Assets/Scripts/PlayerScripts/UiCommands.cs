@@ -1,32 +1,61 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.Playables;
+
 
 public class UiCommands : MonoBehaviour {
 
-    bool toggle = true;
-
     [SerializeField]
-    GameObject options;
-    Slider sliderAudio;
+    private PlayableDirector toOptions, toMenu;
 
-    public void LoadSceneByIndex (int x) {
+    private bool isFullscreen;
+    
+    [SerializeField]
+    private AudioMixer audioMixer;
+
+    public void LoadSceneByIndex (int x)
+    {
         SceneManager.LoadScene(x);
         Debug.Log("Loaded scene:" + x);
     }
 
-    public void Exit() {
+    public void Exit()
+    {
         Application.Quit();
     }
 
-    public void ToggleScreen (){
-        options.SetActive(toggle);
-        toggle = !toggle;
+    public void VolumeUpdate (float value) {
+        audioMixer.SetFloat("Volume", value);
     }
 
-    public void VolumeUpdate() {
-        PlayerPrefs.SetFloat("volume", sliderAudio.value);
+    public void SetQuality (int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void SetFullscreen (int num)
+    {
+        if (num == 0)
+        {
+            isFullscreen = true;
+        }
+        else
+        {
+            isFullscreen = false;
+        }
+        Screen.fullScreen = isFullscreen;
+    }
+
+    public void GoToOptions()
+    {
+        toOptions.Stop();
+        toOptions.Play();
+    }
+
+    public void GoToMenu()
+    {
+        toMenu.Stop();
+        toMenu.Play();
     }
 }
