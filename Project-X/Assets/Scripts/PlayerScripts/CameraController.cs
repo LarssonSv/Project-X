@@ -12,12 +12,11 @@ public class CameraController : MonoBehaviour {
     public float speedV = 2.0f;
 
     private float yaw = 0.0f;
-    public Transform player;
     private float pitch = 0.0f;
     Vector3 targetPos;
 
     private void Start() {
-        
+
         
 
     }
@@ -39,7 +38,6 @@ public class CameraController : MonoBehaviour {
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
-        //player.eulerAngles = new Vector3(0f, Mathf.Round(yaw), 0f);
     }
 
 
