@@ -15,8 +15,7 @@ public class InventoryItemDisplay : MonoBehaviour {
 
     public InventoryItem item;
 
-    void Start()
-    {
+    void Start() {
         iventory = GameObject.Find("Inventory");
 
         if (item != null) {
@@ -40,48 +39,40 @@ public class InventoryItemDisplay : MonoBehaviour {
             displayName = item.displayName;
         }
         Debug.Log("Clicked!" + displayName);
-        
-            switch (displayName)
-            {
-                case "Dagger":
-                    Debug.Log("Works");
-                    break;
 
-                case "Fast Sails":
-                try
-                {
+        switch (displayName) {
+
+            case "Fast Sails":
+                try {
                     GameObject.Find("PlayerBoat").GetComponent<BoatControllerScript>().FastSails();
                     iventory.GetComponent<Inventory>().items.Remove(item);
                 }
-                catch (System.Exception){}
-                    break;
-
-                case "Fuel Tank":
-                    
-                    break;
-
-                case "Refreshments":
-                    iventory.GetComponent<Energy>().RefreshEnergy();
-                    iventory.GetComponent<Inventory>().items.Remove(item);
+                catch (System.Exception) { }
                 break;
 
-                case "Repair Equipment":
-                    try
-                    {
-                        GameObject.Find("PlayerBoat").GetComponent<BoatHp>().RestoreHp();
-                        iventory.GetComponent<Inventory>().items.Remove(item);
-                    }
-                    catch (System.Exception) { }
-                    break;
+            case "Fuel Tank":
 
-                case "Sword":
+                PlayerPrefs.SetFloat("fuel", 100);
+                iventory.GetComponent<Inventory>().items.Remove(item);
+                break;
 
-                    break;
+            case "Refreshments":
+                iventory.GetComponent<Energy>().RefreshEnergy();
+                iventory.GetComponent<Inventory>().items.Remove(item);
+                break;
 
-                default:
-                    break;
-            
-        } 
+            case "Repair Equipment":
+                try {
+                    GameObject.Find("PlayerBoat").GetComponent<BoatHp>().RestoreHp();
+                    iventory.GetComponent<Inventory>().items.Remove(item);
+                }
+                catch (System.Exception) { }
+                break;
+
+            default:
+                break;
+
+        }
 
     }
 }
