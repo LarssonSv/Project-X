@@ -6,8 +6,8 @@ using UnityEngine;
 public class BoatControllerScript : MonoBehaviour {
 
     [SerializeField]
-    private float acceleration = 1f,maxBackSpeed = -50f, 
-                  maxSpeed = 200f, turnSpeed = 1f;
+    private float acceleration,maxBackSpeed, 
+                  maxSpeed, turnSpeed;
 
     private float speed = 0;
 
@@ -18,6 +18,13 @@ public class BoatControllerScript : MonoBehaviour {
     private void Start() {
         boatRB = GetComponent<Rigidbody>();
     }
+
+    public void FastSails()
+    {
+        acceleration += 1.5f;
+        maxSpeed += 200f;
+    }
+
     void FixedUpdate() {
         Inputs();
         boatRB.velocity = vel; // Används inte?

@@ -11,9 +11,14 @@ public class InventoryItemDisplay : MonoBehaviour {
     public delegate void InventoryItemDisplayDelage(InventoryItem item);
     public static event InventoryItemDisplayDelage onClick;
 
+    private GameObject iventory;
+
     public InventoryItem item;
 
-    void Start() {
+    void Start()
+    {
+        iventory = GameObject.Find("Inventory");
+
         if (item != null) {
             Prime(item);
         }
@@ -43,26 +48,30 @@ public class InventoryItemDisplay : MonoBehaviour {
                     break;
 
                 case "Fast Sails":
-
+                try
+                {
+                    GameObject.Find("PlayerBoat").GetComponent<BoatControllerScript>().FastSails();
+                    iventory.GetComponent<Inventory>().items.Remove(item);
+                }
+                catch (System.Exception){}
                     break;
 
                 case "Fuel Tank":
-
+                    
                     break;
 
                 case "Refreshments":
-
-                    break;
+                    iventory.GetComponent<Energy>().RefreshEnergy();
+                    iventory.GetComponent<Inventory>().items.Remove(item);
+                break;
 
                 case "Repair Equipment":
                     try
                     {
-                        Debug.Log("works");
                         GameObject.Find("PlayerBoat").GetComponent<BoatHp>().RestoreHp();
-                        GameObject.Find("Inventory").GetComponent<Inventory>().items.Remove(item);
+                        iventory.GetComponent<Inventory>().items.Remove(item);
                     }
                     catch (System.Exception) { }
-                    Debug.Log("crash");
                     break;
 
                 case "Sword":

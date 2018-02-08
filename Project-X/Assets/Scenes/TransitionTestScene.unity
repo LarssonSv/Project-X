@@ -419,8 +419,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 161572198}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.07215415, y: -0.7436678, z: 0.08711891, w: -0.65891004}
+  m_LocalPosition: {x: -3.682312, y: 3.904312, z: 10.763547}
   m_LocalScale: {x: 1.0000696, y: 0.8274441, z: 2.5139794}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12172,7 +12172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 114437365406853430, guid: e2e5668e60474a24d969b4cec5789ef7, type: 2}
+  - {fileID: 114784966622373808, guid: 77dda3c6c5f3b9843aa606569b9fa120, type: 2}
   inventoryDisplayPrefab: {fileID: 114755086406856406, guid: a6a1e9a6d796f674fa3c5ca713158a22,
     type: 2}
   openInv: 9

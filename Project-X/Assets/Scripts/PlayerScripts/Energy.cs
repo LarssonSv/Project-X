@@ -15,6 +15,11 @@ public class Energy : MonoBehaviour {
         InvokeRepeating("DecayEnergy", 1f, 5f);
     }
 
+    public void RefreshEnergy()
+    {
+        energy = 100;
+    }
+
     private void Update() {
         energyBar.fillAmount = energy / 100;
     }
