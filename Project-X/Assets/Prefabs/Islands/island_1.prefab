@@ -670,12 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882b5716e8106634aa1f21fed9cf7ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goAshoreText: {fileID: 1552780492558932, guid: 56f7070186030ca47ab514a33318cbc1,
-    type: 2}
-  setSailText: {fileID: 1913189575542614, guid: 93dc8ee4d5bd04e4ab3183933e1864bd,
-    type: 2}
   playerBoat: {fileID: 1428229855323124, guid: 55655ff640b657e49a034ecea0eef45c, type: 2}
   spawnPosition: {fileID: 1514172127226570}
-  playerCharacter: {fileID: 1192850109493008, guid: bd693a4aeb637d84b9c9f78078c5f2e4,
+  playerCharacter: {fileID: 1112035096246568, guid: fd4df592b5e1a294babe4c708e2a2475,
     type: 2}
   dockedBoat: {fileID: 1332043339061176, guid: 0e1bcc9938258bf49bb3dbf13af6635b, type: 2}

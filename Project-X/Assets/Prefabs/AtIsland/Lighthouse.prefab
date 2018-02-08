@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82e9721f4623a946bef255112ebc97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1192850109493008, guid: bd693a4aeb637d84b9c9f78078c5f2e4, type: 2}
+  player: {fileID: 1112035096246568, guid: fd4df592b5e1a294babe4c708e2a2475, type: 2}
   hinge: {fileID: 1315327659834386}
   ani: {fileID: 1812639895209656}
   spawnPoint: {fileID: 1974948237061968}
