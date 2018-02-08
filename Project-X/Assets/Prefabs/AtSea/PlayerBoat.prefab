@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 54324128456788544}
   - component: {fileID: 114965929293299796}
   - component: {fileID: 114069275643309840}
+  - component: {fileID: 114356314096375064}
   m_Layer: 0
   m_Name: PlayerBoat
   m_TagString: PlayerBoat
@@ -503,7 +504,6 @@ MonoBehaviour:
   maxBackSpeed: -100
   maxSpeed: 600
   turnSpeed: 4
-  speed: 0
 --- !u!114 &114344457903110808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -529,6 +529,18 @@ MonoBehaviour:
     FarClipPlane: 5000
     Dutch: 0
   m_ComponentOwner: {fileID: 4020264582925154}
+--- !u!114 &114356314096375064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428229855323124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b854ea748beabe4faecdaadc75b43ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 0}
 --- !u!114 &114463428071708316
 MonoBehaviour:
   m_ObjectHideFlags: 1

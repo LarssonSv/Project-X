@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 33842348731742270}
   - component: {fileID: 136728363778018290}
   - component: {fileID: 23404381901110836}
+  - component: {fileID: 114537608829100190}
   - component: {fileID: 54644182096935614}
-  - component: {fileID: 114906815193601034}
+  - component: {fileID: 114959888187041844}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -185,6 +186,29 @@ MonoBehaviour:
     FarClipPlane: 5000
     Dutch: 0
   m_ComponentOwner: {fileID: 4622577523413404}
+--- !u!114 &114537608829100190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192850109493008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8b8394726602a4a908e2eafc15070d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 8
+  walkBackwardSpeed: 4
+  runSpeed: 14
+  runBackwardSpeed: 6
+  sidestepSpeed: 8
+  runSidestepSpeed: 12
+  maxVelocityChange: 10
+  inAirControl: 0.1
+  jumpHeight: 2
+  canRunSidestep: 1
+  canJump: 1
+  canRun: 1
 --- !u!114 &114687576359292344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114906815193601034
+--- !u!114 &114959888187041844
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -204,18 +228,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1192850109493008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9991ebdf8e8408438c73ee888a3ba8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d83cae5121ff0e47b69639045b6fc1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 5
-  turnSpeed: 10
-  maxGroundAngle: 120
-  heightPadding: 0.05
-  height: 1
-  groundAngle: 0
-  ground:
-    serializedVersion: 2
-    m_Bits: 256
+  offsetPos: {x: 0, y: 0, z: 0}
+  moveSpeed: 5
+  speedH: 2
+  speedV: 2
 --- !u!136 &136728363778018290
 CapsuleCollider:
   m_ObjectHideFlags: 1

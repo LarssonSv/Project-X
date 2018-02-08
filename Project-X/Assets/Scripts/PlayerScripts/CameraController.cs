@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     
-    public Transform target;
+    
     public Vector3 offsetPos;
     public float moveSpeed = 5;
     public float speedH = 2.0f;
@@ -14,18 +14,22 @@ public class CameraController : MonoBehaviour {
     private float yaw = 0.0f;
     private float pitch = 0.0f;
     Vector3 targetPos;
- 
+
+    private void Start() {
+
+        
+
+    }
 
 
 
-	
-	void FixedUpdate () {
+    void FixedUpdate () {
         MovieWithTarget();
         RotateTowardsMouse(); 
     }
 
     void MovieWithTarget() {
-        targetPos = target.position + offsetPos;
+        targetPos = transform.position + offsetPos;
         transform.position = targetPos;
     }
 
