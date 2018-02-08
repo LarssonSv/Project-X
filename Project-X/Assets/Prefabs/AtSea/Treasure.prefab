@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a57b44d50cdd224f90daac680071162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loot: {fileID: 0}
+  loot: {fileID: 114831161033664146, guid: 3e1d9c2dc370a3048a781fc9c16267f3, type: 2}
 --- !u!198 &198873709599068276
 ParticleSystem:
   m_ObjectHideFlags: 1

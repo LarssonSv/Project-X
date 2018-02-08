@@ -17,10 +17,13 @@ public class Inventory : MonoBehaviour {
 
     bool open = false;
 
+    GameObject inv;
+
     void Start() {
         moneyText = GameObject.Find("MoneyText");
         ChangeMoney("Add", startMoney);
         PlayerPrefs.SetFloat("fuel", 100f);
+        inv = GameObject.FindGameObjectWithTag("Inventory");
     }
 
     void Update() {

@@ -11,6 +11,9 @@ public class Interact : MonoBehaviour {
     public KeyCode use;
     public int limit = 1;
     int timesUsed = 0;
+    GameObject inv;
+    public string name;
+    public string maintext;
 
   
 
@@ -18,6 +21,7 @@ public class Interact : MonoBehaviour {
 
     void Start() {
         interactIcon.fillAmount = 0;
+        inv = GameObject.FindGameObjectWithTag("Inventory");
     }
 
 
@@ -36,10 +40,18 @@ public class Interact : MonoBehaviour {
         if (other.tag == "Player") {
             interactIcon.fillAmount = 0;
         }
+        inv.GetComponent<SpeachBubble>().Deactivate();
+        Destroy(gameObject);
     }
 
     void Test() {
         Debug.Log("Works");
+    }
+
+
+    void SpeachBubble()
+    {
+        inv.GetComponent<SpeachBubble>().FeedCanvas(name, maintext);
     }
 
  

@@ -10,18 +10,14 @@ public class Transition : MonoBehaviour {
 
     private GameObject goAshoreText, setSailText;
 
-    private bool docked = false, nearby = false;
-
-    private Rigidbody boatRB;
+    private bool docked = true, nearby = false;
 
     private void Start()
     {
-        boatRB = playerBoat.GetComponent<Rigidbody>();
         goAshoreText = GameObject.Find("UI").transform.Find("GoAshoreText").gameObject;
         setSailText = GameObject.Find("UI").transform.Find("SetSailText").gameObject;
     }
 
-    //Slår på/av texten när båten kommer in/ut ur kollisionsboxen.
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerBoat") || other.CompareTag("Player"))
